@@ -41,6 +41,12 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+group :test do
+  gem 'mongoid-rspec', '~> 2.1.0'
 end
 
 gem 'mongoid', '~> 4.0.2'
