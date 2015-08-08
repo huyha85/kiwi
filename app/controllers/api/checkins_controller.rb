@@ -1,6 +1,6 @@
 class Api::CheckinsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_filter :verify_token
+  before_filter :verify_token, only: [:create]
 
   def create
     resource = Checkin.toggle_checkin(checkin_params[:email])
@@ -9,6 +9,10 @@ class Api::CheckinsController < ApplicationController
     else
       render json: { error: 'Invalid user email' }, status: :bad_request
     end
+  end
+
+  def show
+    render nothing: true
   end
 
   private

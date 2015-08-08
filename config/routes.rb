@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   namespace :api do
-    resource :checkin, only: [:create]
+    resource :checkin, only: [:create, :show]
   end
 
   # Example of regular route:

@@ -54,4 +54,11 @@ RSpec.describe Api::CheckinsController, type: :controller do
       end
     end
   end
+
+  describe 'GET show' do
+    it 'returns success status' do
+      get :show
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
