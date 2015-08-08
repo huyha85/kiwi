@@ -7,4 +7,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    #header
+      .menu
+        %ul.nav
+          %li= link_to 'Home', '/'
+          %li= link_to 'Data'
+          %li= link_to 'Contact'
+      .banner KIWI
+    #main
+      = yield

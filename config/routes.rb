@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   namespace :api do
     resource :checkin, only: [:create, :show]
   end
+  get '/home' => 'pages#home'
+
+  root 'pages#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
