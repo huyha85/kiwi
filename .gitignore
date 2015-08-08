@@ -11,7 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-/config/mongoid.yml
 /**/.keep
 bin/
 # Ignore application configuration
