@@ -8,6 +8,8 @@ RSpec.describe Checkin, type: :model do
       let(:email) { "#{Faker::Internet.user_name}@#{ENV['email_domain']}" }
 
       context 'with no checkin today' do
+        let!(:checkin) { Checkin.create(user: user) }
+        before { checkin.set(created_at: 1.day.ago) }
         it 'returns new checkin' do
           expect {
             expect(response).to be_is_a(Checkin)
