@@ -11,6 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+/config/mongoid.yml
+/config/cucumber.yml
 /**/.keep
 bin/
 # Ignore application configuration
