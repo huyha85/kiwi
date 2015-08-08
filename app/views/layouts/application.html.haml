@@ -14,6 +14,6 @@
           %li{ class: "#{'selected' if @tab == 'home'}"}= link_to 'Home', '/'
           %li{ class: "#{'selected' if @tab == 'data'}"}= link_to 'Data', checkins_url
           %li{ class: "#{'selected' if @tab == 'contact'}"}= link_to 'Contact', '/contact'
-      .banner KIWI
+      .banner= link_to 'KIWI', '/'
     #main
       = yield
