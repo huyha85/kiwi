@@ -1,0 +1,9 @@
+== README
+
+This is KIWI project, a quick check-in app built for the first EA Hackathon Day on August 8th 2015.
+
+=== Team Members
+
+- Huy Ha
+- Toan Tran
+- Hoang Phan
