@@ -11,7 +11,7 @@ class CheckinsController < ApplicationController
     params.permit(:user_id, :page)
   end
 
-  def permitted_params
-    user_params[:user_id]
+  def user_id
+    permitted_params[:user_id]
   end
 end
