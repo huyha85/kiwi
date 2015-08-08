@@ -2,8 +2,8 @@ class CheckinsController < ApplicationController
   def index
     @tab = 'data'
     @user = User.where(id: user_id).first
-    @checkins = collection.page(permitted_params[:page].to_i).per(10)
-    @graph_data = collection.limit(10)
+    @checkins = collection.page(permitted_params[:page].to_i).per(CHECKINS_PER_PAGE)
+    @graph_data = collection.limit(NUMBER_OF_LAST_CHECKINS)
   end
 
   private

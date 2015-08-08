@@ -23,8 +23,13 @@
     #graph-container
       %h3= "Last #{NUMBER_OF_LAST_CHECKINS} days"
 
-:coffee
-  $ ->
-    labels = #{date_labels.to_s}
-    checkins_times = #{checkin_times(@graph_data).to_s}
-    window.drawChart(labels, checkins_times)
+- if @user.present?
+  :coffee
+    $ ->
+      labels = #{date_labels.to_s}
+      checkins_times = #{checkin_times(@graph_data).to_s}
+      window.drawChart(labels, checkins_times)
+- else
+  :coffee
+    $ ->
+      $('#graph-container h3').text('The chart is only available for a specific user!')
