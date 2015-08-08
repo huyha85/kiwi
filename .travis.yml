@@ -8,3 +8,4 @@ env:
 before_script:
   - sleep 10
   - mongo kiwi_test --eval "db.addUser('travis', 'test');"
+script: CODECLIMATE_REPO_TOKEN=$CODECLIMATE_REPO_TOKEN bundle exec rake

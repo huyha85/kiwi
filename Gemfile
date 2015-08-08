@@ -49,6 +49,7 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'selenium-webdriver'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 gem 'mongoid', '~> 4.0.2'
