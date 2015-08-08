@@ -11,7 +11,7 @@ window.drawChart = (labels, datasets) ->
     labels : labels,
     datasets : [
       {
-        fillColor : "rgba(220,4,4,0.5)",
+        fillColor : "transparent",
         strokeColor : "rgba(220,4,4,1)",
         pointColor : "rgba(220,4,4,1)",
         pointStrokeColor : "#fff",
@@ -22,7 +22,8 @@ window.drawChart = (labels, datasets) ->
 
   chartOptions = {
     scaleGridLineColor : "#555",
-    tooltipTemplate: "<%= value %>"
+    tooltipTemplate: "<%= value %>",
+    scaleBeginAtZero: true
   }
 
   $('#canvas').remove()
