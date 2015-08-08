@@ -17,3 +17,9 @@
 - else
   %p This user has no checkins
 #graph-container
+
+:coffee
+  $ ->
+    labels = #{date_labels.to_s}
+    checkins_times = #{checkin_times(@checkins).to_s}
+    window.drawChart(labels, checkins_times)
