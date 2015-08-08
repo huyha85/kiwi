@@ -1,17 +1,19 @@
-%h1 East Agile Checkin App
+%h1 Kiwi
 = select_tag :users, options_from_collection_for_select(@users, :id, :email, @user.try(:id).try(:to_s)), include_blank: 'All'
 
 - if @checkins.present?
   %table#checkin-details
     %thead
       %tr
-        %th User name
+        %th User email
         %th Checkin at
     %tbody
       - @checkins.each do |checkin|
         %tr
           %td= checkin.user_email
           %td= checkin.created_at.strftime('%d-%m-%y %H:%M:%S')
+  %p
+    = paginate @checkins
 - else
   %p This user has no checkins
 #graph-container

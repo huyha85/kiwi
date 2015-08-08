@@ -15,6 +15,10 @@ When(/^I select the user email from dropdown$/) do
   select @user.email, from: 'users'
 end
 
+When(/^I click on '(.*)'$/) do |link|
+  click_on link
+end
+
 Then(/^I should see (\d+) checkins$/) do |num_checkins|
   expect(page).to have_css("table#checkin-details tbody tr", count: num_checkins)
 end

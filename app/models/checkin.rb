@@ -2,7 +2,7 @@ class Checkin
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  ALL_USER = 'all'
+  MAX_CHECKINS_PER_PAGE = 25
 
   belongs_to :user
 
