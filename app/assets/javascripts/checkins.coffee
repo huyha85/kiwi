@@ -6,6 +6,18 @@ $ ->
     else
       window.location.href = "/checkins?user_id=#{userId}"
 
+window.timeFormat = (time_str) ->
+  time = parseFloat(time_str)
+  if time == 0
+    'Not checked in'
+  else
+    hour = Math.floor(time)
+    minute = Math.floor((time - hour) * 60)
+    "Checked in at #{padZero(hour)}:#{padZero(minute)}"
+
+window.padZero = (figure) ->
+  (if figure < 10 then '0' else '') + figure
+
 window.drawChart = (labels, datasets) ->
   data = {
     labels : labels,
@@ -22,7 +34,7 @@ window.drawChart = (labels, datasets) ->
 
   chartOptions = {
     scaleGridLineColor : "#555",
-    tooltipTemplate: "<%= value %>",
+    tooltipTemplate: "<%= label %>: <%= timeFormat(value) %>",
     scaleBeginAtZero: true
   }
 
