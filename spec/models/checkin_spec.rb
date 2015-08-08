@@ -37,11 +37,29 @@ RSpec.describe Checkin, type: :model do
   end
 
   describe '#get_hour_in_float' do
-    let(:checkin) { create(:checkin, created_at: created_at) }
-    let(:created_at) { DateTime.parse('2015-08-08 03:48:58 -0700') }
+    let(:checkin) { build(:checkin) }
+    let(:time_local) { DateTime.parse('2015-08-08 03:48:58 -0700') }
+
+    before do
+      allow(checkin).to receive(:created_at_local_time).and_return time_local
+    end
     
     it 'return correct time in float' do
-      expect(checkin.get_hour_in_float).to eq (10 + 48 / 60.0)
+      expect(checkin.get_hour_in_float).to eq (3 + 48 / 60.0)
+    end
+  end
+
+  describe '#created_at_local_time' do
+    let(:time_zone) { 'Asia/Ho_Chi_Minh' }
+    let(:checkin) { build(:checkin, created_at: created_at) }
+    let(:created_at) { DateTime.parse('2015-08-08 03:48:58 -0700') }
+
+    before do
+      expect(Figaro.env).to receive(:timezone).and_return(time_zone)
+    end
+
+    it 'returns correct time in timezone' do
+      expect(checkin.created_at_local_time.to_s).to eq "2015-08-08 17:48:58 +0700"
     end
   end
 end

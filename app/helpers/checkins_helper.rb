@@ -13,7 +13,7 @@ module CheckinsHelper
 
   def get_checkin_hour_of_date(checkins, date)
     checkins.each do |checkin|
-      if date_format(checkin.created_at) == date_format(date)
+      if date_format(checkin.created_at_local_time) == date_format(date)
         return checkin.get_hour_in_float.round(2)
       end
     end

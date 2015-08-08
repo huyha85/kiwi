@@ -20,6 +20,10 @@ class Checkin
   end
 
   def get_hour_in_float
-    created_at.strftime('%H').to_i + created_at.strftime('%M').to_f / 60
+    created_at_local_time.strftime('%H').to_i + created_at_local_time.strftime('%M').to_f / 60
+  end
+
+  def created_at_local_time
+    created_at.in_time_zone(Figaro.env.timezone) # Used for stub timezone in test
   end
 end

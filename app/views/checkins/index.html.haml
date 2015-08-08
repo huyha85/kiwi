@@ -15,7 +15,7 @@
             - @checkins.each do |checkin|
               %tr
                 %td= checkin.user_email
-                %td= checkin.created_at.strftime(DATE_TIME_FORMAT)
+                %td= checkin.created_at_local_time.strftime(DATE_TIME_FORMAT)
         %p
           = paginate @checkins
       - else
