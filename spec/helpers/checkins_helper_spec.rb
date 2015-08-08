@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe CheckinsHelper, type: :helper do
+  let(:timezone) { 'Asia/Ho_Chi_Minh' }
+
+  before do
+    allow(Figaro.env).to receive(:timezone).and_return(timezone)
+  end
+
   describe '#date_labels' do
     it 'returns last 10 days' do
       expect(helper.date_labels.count).to eq 10

@@ -1,12 +1,12 @@
 module CheckinsHelper
   def date_labels
-    (NUMBER_OF_LAST_CHECKINS - 1).days.ago.to_date.upto(Date.today).map do |date|
+    start_date.upto(Date.today).map do |date|
       date_format(date)
     end
   end
 
   def checkin_times(checkins)
-    (NUMBER_OF_LAST_CHECKINS - 1).days.ago.to_date.upto(Date.today).map do |date|
+    start_date.upto(Date.today).map do |date|
       get_checkin_hour_of_date(checkins, date)
     end
   end
@@ -22,5 +22,9 @@ module CheckinsHelper
 
   def date_format(date)
     date.strftime(DATE_FORMAT)
+  end
+
+  def start_date
+    (NUMBER_OF_LAST_CHECKINS - 1).days.ago.in_time_zone(Figaro.env.timezone).to_date
   end
 end
