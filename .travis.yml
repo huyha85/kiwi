@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.2.2
+services:
+  - mongodb
+env:
+  - MONGOID_VERSION=4
+before_script:
+  - sleep 10
+  - mongo kiwi_test --eval "db.addUser('travis', 'test');"
