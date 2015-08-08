@@ -8,7 +8,7 @@ Given(/^I have (\d+) checkins$/) do |num_checkins|
 end
 
 When(/^I go to checkins page$/) do
-  visit checkins_index_path
+  visit checkins_path
 end
 
 When(/^I select the user email from dropdown$/) do

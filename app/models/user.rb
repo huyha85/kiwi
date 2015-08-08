@@ -4,7 +4,7 @@ class User
 
   field :email, type: String
 
-  has_many :checkins
+  has_many :checkins, dependent: :destroy
 
   validates :email, presence: true, uniqueness: true
 

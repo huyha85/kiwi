@@ -10,8 +10,8 @@
     #header
       .menu
         %ul.nav
-          %li= link_to 'Home', '/'
-          %li= link_to 'Data'
+          %li{ class: "#{'selected' if @tab == 'home'}"}= link_to 'Home', '/'
+          %li{ class: "#{'selected' if @tab == 'data'}"}= link_to 'Data', checkins_url
           %li= link_to 'Contact'
       .banner KIWI
     #main

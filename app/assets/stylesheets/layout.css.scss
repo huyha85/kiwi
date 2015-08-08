@@ -19,7 +19,6 @@ body {
 
 #main {
   min-height: 200px;
-  padding-top: 100px;
   text-align: center;
 }
 
@@ -44,19 +43,39 @@ body {
     padding: 0 10px;
     font-size: 20px;
     line-height: 20px;
-    a {
-      color: #ccc;
-      text-decoration: none;
-      &:hover {
-        color: #72c046;
+    &.selected {
+      a {
+        color: rgba(114,192,70,0.95);
       }
     }
   }
 }
 
+a {
+  color: #ccc;
+  text-decoration: none;
+  &:hover {
+    color: rgba(114,192,70,0.95);
+  }
+}
+
 #home-page {
   font-size: 30px;
+  padding-top: 100px;
   .nav {
     margin-top: 30px;
+  }
+}
+
+.styled-select {
+  select {
+    background: #fff;
+    padding: 5px 8px;
+    font-size: 14px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    height: 30px;
+    min-width: 300px;
   }
 }

@@ -1,0 +1,3 @@
+DATE_TIME_FORMAT = '%d/%m/%y %H:%M:%S'
+DATE_FORMAT = '%d/%m/%y'
+NUMBER_OF_LAST_CHECKINS = 10

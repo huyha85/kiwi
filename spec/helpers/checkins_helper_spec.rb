@@ -4,7 +4,7 @@ RSpec.describe CheckinsHelper, type: :helper do
   describe '#date_labels' do
     it 'returns last 10 days' do
       expect(helper.date_labels.count).to eq 10
-      expect(helper.date_labels.first).to eq Date.today.strftime('%d/%m/%y')
+      expect(helper.date_labels.last).to eq Date.today.strftime(DATE_FORMAT)
     end
   end
 
@@ -32,7 +32,7 @@ RSpec.describe CheckinsHelper, type: :helper do
 
     context 'has checkin in the date' do
       let!(:checkin) { create(:checkin, created_at: created_at) }
-      let(:hour_in_float) { 22.222 }
+      let(:hour_in_float) { 22.22 }
 
       before do
         allow_any_instance_of(Checkin).to receive(:get_hour_in_float).and_return(hour_in_float)

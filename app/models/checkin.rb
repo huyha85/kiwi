@@ -6,7 +6,9 @@ class Checkin
 
   belongs_to :user
 
-  delegate :email, to: :user, prefix: true
+  delegate :email, to: :user, prefix: true, allow_nil: true
+
+  default_scope -> { order_by('created_at desc') }
 
   def self.toggle_checkin(email)
     user = User.with_whitelist_domain_email(email)

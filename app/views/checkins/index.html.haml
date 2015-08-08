@@ -1,25 +1,29 @@
-%h1 Kiwi
-= select_tag :users, options_from_collection_for_select(@users, :id, :email, @user.try(:id).try(:to_s)), include_blank: 'All'
+#checkins-header
+  %h1 Select a user to view chart
+  .styled-select= select_tag :users, options_from_collection_for_select(User.all, :id, :email, @user.try(:id)), include_blank: 'All'
 
-- if @checkins.present?
-  %table#checkin-details
-    %thead
-      %tr
-        %th User email
-        %th Checkin at
-    %tbody
-      - @checkins.each do |checkin|
-        %tr
-          %td= checkin.user_email
-          %td= checkin.created_at.strftime('%d-%m-%y %H:%M:%S')
-  %p
-    = paginate @checkins
-- else
-  %p This user has no checkins
-#graph-container
+#checkins-data
+  #checkins-list
+    - if @checkins.present?
+      %table#checkin-details{ cellspacing: "0", cellpadding: "0"}
+        %thead
+          %tr
+            %th Email
+            %th Check-in at
+        %tbody
+          - @checkins.each do |checkin|
+            %tr
+              %td= checkin.user_email
+              %td= checkin.created_at.strftime(DATE_TIME_FORMAT)
+      %p
+        = paginate @checkins
+    - else
+      %p This user has no checkins
+  #graph-container
+    %h3= "Last #{NUMBER_OF_LAST_CHECKINS} days"
 
 :coffee
   $ ->
     labels = #{date_labels.to_s}
-    checkins_times = #{checkin_times(@checkins).to_s}
+    checkins_times = #{checkin_times(@graph_data).to_s}
     window.drawChart(labels, checkins_times)

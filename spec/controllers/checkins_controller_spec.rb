@@ -26,9 +26,6 @@ RSpec.describe CheckinsController, type: :controller do
       expect(response).to be_success
     end
 
-    it 'returns all users' do
-      expect(assigns(:users).count).to eq User.count 
-    end
 
     context 'with valid user_id' do
       let(:user_id) { user.id.to_s }
