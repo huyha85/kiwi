@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'checkins/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   namespace :api do
     resource :checkin, only: [:create]
   end
+
+  resource :checkins, only: :index
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
