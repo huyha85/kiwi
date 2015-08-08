@@ -38,7 +38,7 @@ RSpec.describe CheckinsHelper, type: :helper do
 
     context 'has checkin in the date' do
       let!(:checkin) { create(:checkin, created_at: created_at) }
-      let(:hour_in_float) { 22.22 }
+      let(:hour_in_float) { 22.222 }
 
       before do
         allow_any_instance_of(Checkin).to receive(:get_hour_in_float).and_return(hour_in_float)
