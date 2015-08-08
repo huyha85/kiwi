@@ -38,10 +38,10 @@ RSpec.describe Checkin, type: :model do
 
   describe '#get_hour_in_float' do
     let(:checkin) { create(:checkin, created_at: created_at) }
-    let(:created_at) { DateTime.parse('2015-08-08 03:48:58 -0700') }
-    
+    let(:created_at) { Time.parse('2015-08-08 03:48:58 +07:00') }
+
     it 'return correct time in float' do
-      expect(checkin.get_hour_in_float).to eq (10 + 48 / 60.0)
+      expect(checkin.get_hour_in_float).to eq (3 + 48 / 60.0)
     end
   end
 end
