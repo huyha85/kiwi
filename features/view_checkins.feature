@@ -15,8 +15,8 @@ Scenario: All checkins
   Then I should see 5 checkins
 
 Scenario: Larger than max checkins per page
-  Given I have 25 checkins
+  Given I have 10 checkins
   When I go to checkins page
-  Then I should see 25 checkins
+  Then I should see 10 checkins
   When I click on '2'
   Then I should see 5 checkins
