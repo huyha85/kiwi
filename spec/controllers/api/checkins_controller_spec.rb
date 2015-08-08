@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Api::CheckinsController, type: :controller do
   describe 'POST create' do
     let(:response_json) { JSON.parse(response.body) }
+
     context 'with valid params' do
       let(:email) { Faker::Internet.email }
       let(:valid_params) {
@@ -36,6 +37,7 @@ RSpec.describe Api::CheckinsController, type: :controller do
         expect(Checkin).not_to receive(:toggle_checkin)
         post :create, invalid_params
         expect(response).to have_http_status(:bad_request)
+        expect(response_json['error']).to eq 'Required parameter missing: email'
       end
     end
   end
