@@ -16,4 +16,8 @@ class Checkin
   def self.create_today_checkin(user)
     where(user: user, :created_at.gte => Time.now.beginning_of_day).first_or_create
   end
+
+  def get_hour_in_float
+    created_at.strftime('%H').to_i + created_at.strftime('%M').to_f / 60
+  end
 end
