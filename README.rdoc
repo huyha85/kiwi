@@ -2,8 +2,13 @@
 
 This is KIWI project, a quick check-in app built for the first EA Hackathon Day on August 8th 2015.
 
-=== Travis CI
+=== Code Metrics
+
 {<img src="https://travis-ci.org/huyha85/kiwi.svg" alt="Build Status" />}[https://travis-ci.org/huyha85/kiwi]
+
+{<img src="https://codeclimate.com/github/huyha85/kiwi/badges/gpa.svg" />}[https://codeclimate.com/github/huyha85/kiwi]
+
+{<img src="https://codeclimate.com/github/huyha85/kiwi/badges/coverage.svg" />}[https://codeclimate.com/github/huyha85/kiwi/coverage]
 
 === Team Members
 
