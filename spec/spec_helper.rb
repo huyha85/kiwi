@@ -41,6 +41,7 @@ RSpec.configure do |config|
   end
 
   config.include Mongoid::Matchers, type: :model
+  config.include FactoryGirl::Syntax::Methods
 
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
