@@ -2,16 +2,30 @@ require 'rails_helper'
 
 RSpec.describe Api::CheckinsController, type: :controller do
   describe 'POST create' do
+    let(:response_json) { JSON.parse(response.body) }
     context 'with valid params' do
       let(:email) { Faker::Internet.email }
       let(:valid_params) {
         { email: email }
       }
 
-      it 'toggles perform method in Checkin model' do
-        expect(Checkin).to receive(:toggle_checkin).with(email).and_call_original
-        post :create, valid_params
-        expect(response).to have_http_status(:ok)
+      context 'with success toggle_checkin' do
+        let(:checkin) { create(:checkin) }
+        it 'returns timestamp of checkin' do
+          expect(Checkin).to receive(:toggle_checkin).with(email).and_return(checkin)
+          post :create, valid_params
+          expect(response).to have_http_status(:ok)
+          expect(response_json['timestamp']).to eq checkin.created_at.to_i
+        end
+      end
+
+      context 'with unsuccess toggle_checkin' do
+        it 'returns bad_request response' do
+          expect(Checkin).to receive(:toggle_checkin).with(email).and_return(nil)
+          post :create, valid_params
+          expect(response).to have_http_status(:bad_request)
+          expect(response_json['error']).to eq 'Invalid user email'
+        end
       end
     end
 
