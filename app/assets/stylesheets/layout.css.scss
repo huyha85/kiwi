@@ -6,6 +6,7 @@ html, body {
 body {
   background: rgba(39,41,43,0.985);
   color: #fff;
+  font-family: 'Lato', sans-serif;
 }
 
 * {
@@ -77,5 +78,18 @@ a {
     border-radius: 0;
     height: 30px;
     min-width: 300px;
+  }
+}
+
+.main-page {
+  padding-top: 10px;
+}
+
+#contact-page {
+  ul {
+    margin-top: 10px;
+    li {
+      margin-top: 5px;
+    }
   }
 }

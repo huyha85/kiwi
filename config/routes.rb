@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resource :checkin, only: [:create, :show]
   end
   get '/home' => 'pages#home'
+  get '/contact' => 'pages#contact'
 
   root 'pages#home'
 

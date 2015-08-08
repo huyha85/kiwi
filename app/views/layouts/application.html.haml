@@ -4,6 +4,7 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Kiwi
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %link{ href: 'http://fonts.googleapis.com/css?family=Lato:400,700', rel: 'stylesheet' , type: 'text/css'}
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
@@ -12,7 +13,7 @@
         %ul.nav
           %li{ class: "#{'selected' if @tab == 'home'}"}= link_to 'Home', '/'
           %li{ class: "#{'selected' if @tab == 'data'}"}= link_to 'Data', checkins_url
-          %li= link_to 'Contact'
+          %li{ class: "#{'selected' if @tab == 'contact'}"}= link_to 'Contact', '/contact'
       .banner KIWI
     #main
       = yield

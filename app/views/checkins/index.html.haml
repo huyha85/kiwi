@@ -1,26 +1,27 @@
-#checkins-header
-  %h1 Select a user to view chart
-  .styled-select= select_tag :users, options_from_collection_for_select(User.all, :id, :email, @user.try(:id)), include_blank: 'All'
+.main-page
+  #checkins-header
+    %h1 Select a user to view chart
+    .styled-select= select_tag :users, options_from_collection_for_select(User.all, :id, :email, @user.try(:id)), include_blank: 'All'
 
-#checkins-data
-  #checkins-list
-    - if @checkins.present?
-      %table#checkin-details{ cellspacing: "0", cellpadding: "0"}
-        %thead
-          %tr
-            %th Email
-            %th Check-in at
-        %tbody
-          - @checkins.each do |checkin|
+  #checkins-data
+    #checkins-list
+      - if @checkins.present?
+        %table#checkin-details{ cellspacing: "0", cellpadding: "0"}
+          %thead
             %tr
-              %td= checkin.user_email
-              %td= checkin.created_at.strftime(DATE_TIME_FORMAT)
-      %p
-        = paginate @checkins
-    - else
-      %p This user has no checkins
-  #graph-container
-    %h3= "Last #{NUMBER_OF_LAST_CHECKINS} days"
+              %th Email
+              %th Check-in at
+          %tbody
+            - @checkins.each do |checkin|
+              %tr
+                %td= checkin.user_email
+                %td= checkin.created_at.strftime(DATE_TIME_FORMAT)
+        %p
+          = paginate @checkins
+      - else
+        %p This user has no checkins
+    #graph-container
+      %h3= "Last #{NUMBER_OF_LAST_CHECKINS} days"
 
 :coffee
   $ ->
